@@ -24,7 +24,17 @@
 <body>
 
     <div id="root">
-        
+
+        <button @click="buildEmailArray(numberofEmail)">Genera</button>
+        <input type="number" id="number-of-email" v-model="numberofEmail" placeholder="Numero di email da generare">
+
+        <ul>
+            <li v-for="email in emailArray">
+                {{email}}
+            </li>
+        </ul>
+
+    </div>  
     </div>
     
 
