@@ -28,7 +28,7 @@
         <button @click="buildEmailArray(numberofEmail)">Genera</button>
         <input type="number" id="number-of-email" v-model="numberofEmail">
 
-        <ul v-if="emailArray.lenght >= nEmailShowed">
+        <ul v-if="emailArray.length >= nEmailShowed">
             <li v-for="email in emailArray">
                 {{email}}
             </li>
