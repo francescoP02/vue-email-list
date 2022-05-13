@@ -3,12 +3,13 @@ const app = new Vue(
         el: `#root`,
         data: {
             emailArray : [],
-
+            numberofEmail: 10,
+            nEmailShowed: 10,
         },
 
         methods: {
             getEmail: function() {
-                let fetchedEmail = ''
+                let generatedEmail = '';
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                 .then((response) => {
                     generatedEmail = response.data.response;
@@ -18,6 +19,7 @@ const app = new Vue(
             },
 
             buildEmailArray: function(numberofEmail) {
+                this.nEmailShowed = this.numberofEmail;
                 this.emailArray = [];
                 for (let i = 0; i < numberofEmail; i++) {
                     this.getEmail();
@@ -25,7 +27,7 @@ const app = new Vue(
             },
         },
         mounted() {
-            this.buildEmailArray(this.howManyToGenerate);
+            this.buildEmailArray(this.numberofEmail);
         },
     }
 ) 
